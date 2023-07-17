@@ -1,8 +1,17 @@
+server:
+  port: ${SERVER_PORT:8080}
+
 spring:
   application:
-    name: wf-gateway
+    name: ${SPRING_APPLICATION_NAME:wf-gateway}
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: ${GATEWAY_DISCOVERY_LOCATOR_ENABLED:true}
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: ${EUREKA_CLIENT_URL:http://localhost:8761/eureka}
